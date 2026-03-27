@@ -29,10 +29,28 @@ def hello(name):
 #  Each exercise asks you to add a new @app.route here
 # ============================================================
 
+# ---- Exercise 2: update your analyze route ----
+
 @app.route('/analyze/<word>')
 def analyze(word):
-    
-    return str(len(word)) + " characters in " + word
+    # Step 1: character count (already done)
+    num_chars = len(word)
+    lowercase = word.lower()
+    for char in lowercase:
+        if char in 'aeiou':
+            vowel += 1
+    # Step 2: YOUR CODE HERE
+    # Count vowels (a, e, i, o, u) — case insensitive, y is not a vowel
+    # Hint: word.lower() converts to lowercase before checking each character
+    num_vowels = vowel  # replace this with your vowel-counting logic
+
+    # render_template passes all variables into analyze.html
+    return render_template('analyze.html',
+                           word=word,
+                           num_chars=num_chars,
+                           num_vowels=num_vowels)
+
+
 
 
 # ============================================================
