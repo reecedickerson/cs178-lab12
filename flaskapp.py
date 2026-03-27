@@ -35,15 +35,14 @@ def hello(name):
 def analyze(word):
     # Step 1: character count (already done)
     num_chars = len(word)
+    
     lowercase = word.lower()
+    vowel = 0
     for char in lowercase:
         if char in 'aeiou':
             vowel += 1
-    # Step 2: YOUR CODE HERE
-    # Count vowels (a, e, i, o, u) — case insensitive, y is not a vowel
-    # Hint: word.lower() converts to lowercase before checking each character
-    num_vowels = vowel  # replace this with your vowel-counting logic
-
+    num_vowels = vowel  
+    
     # render_template passes all variables into analyze.html
     return render_template('analyze.html',
                            word=word,
