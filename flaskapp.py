@@ -29,7 +29,10 @@ def hello(name):
 #  Each exercise asks you to add a new @app.route here
 # ============================================================
 
-
+@app.route('/analyze/<word>')
+def analyze(word):
+    
+    return str(len(word)) + " characters in " + word
 
 
 # ============================================================
